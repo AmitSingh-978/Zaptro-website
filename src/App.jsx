@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Navbar from "./Components/Navbar";
 import axios from "axios";
+import SingleProduct from './pages/SingleProduct';
 const App = () => {
   const [location, setLocation] = useState();
    const [openDropdown, setopenDropdown] = useState(false);
@@ -38,6 +39,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
