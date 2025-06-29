@@ -6,10 +6,10 @@ export const DataContext = createContext(null);
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
 
-  // ✅ FIXED: Show all image URLs safely (no undefined now)
+  //FIXED Show all image URLs safely (no undefined now)
   console.log(data?.map(item => item.image), "images");
 
-  // 🔄 Fetching all products from API
+  // Fetching all products from API
   const fetchAllProducts = async () => {
     try {
       const res = await axios.get(
@@ -23,7 +23,7 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // 🏷️ Get Unique Categories / Brands
+  //  Get Unique Categories / Brands
   const getUniqueCategory = (data, property) => {
     let newVal = data?.map((curElem) => curElem[property]);
     newVal = ["All", ...new Set(newVal)];

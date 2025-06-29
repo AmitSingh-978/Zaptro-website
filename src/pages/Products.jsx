@@ -16,12 +16,11 @@ const Products = () => {
   const [page, setpage] = useState(1);
   useEffect(() => {
     fetchAllProducts();
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
   }, []);
 
   const pageHandler = (SelectedPage) => {
     setpage(SelectedPage);
-
   };
 
   // FILTER LOGIC with correct keys
@@ -70,7 +69,9 @@ const Products = () => {
                   />
                 </div>
               ) : (
-                <div className="flex justify-center items-center md:h-[600px] md:w-[900px] mt-10"> </div>
+                <div className="flex justify-center items-center md:h-[600px] md:w-[900px] mt-10">
+                  {" "}
+                </div>
               )}
 
               {/*  Filtered Products */}

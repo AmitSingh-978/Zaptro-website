@@ -7,12 +7,12 @@ import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Navbar from "./Components/Navbar";
 import axios from "axios";
-import SingleProduct from './pages/SingleProduct';
+import SingleProduct from "./pages/SingleProduct";
 const App = () => {
   const [location, setLocation] = useState();
-   const [openDropdown, setopenDropdown] = useState(false);
+  const [openDropdown, setopenDropdown] = useState(false);
   const getLocation = async () => {
-    navigator.geolocation.getCurrentPosition(async pos => {
+    navigator.geolocation.getCurrentPosition(async (pos) => {
       const { latitude, longitude } = pos.coords;
       // console.log(latitude, longitude);
 
@@ -20,9 +20,9 @@ const App = () => {
       try {
         const location = await axios.get(url);
         const exactLocation = location.data.address;
-        setLocation(exactLocation)
-       setopenDropdown(false)
-       
+        setLocation(exactLocation);
+        setopenDropdown(false);
+
         // console.log(exactLocation)
       } catch (error) {
         console.log(error);
@@ -35,11 +35,16 @@ const App = () => {
   }, []);
   return (
     <BrowserRouter>
-      <Navbar location={location} getLocation={getLocation}  openDropdown={openDropdown} setopenDropdown={setopenDropdown}/>
+      <Navbar
+        location={location}
+        getLocation={getLocation}
+        openDropdown={openDropdown}
+        setopenDropdown={setopenDropdown}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
